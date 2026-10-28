@@ -4,6 +4,10 @@ A store where the customer talks to an assistant and the assistant answers with 
 
 This is **Generative UI**: the model decides *which* component to show and with *what data*; the front end decides *how* it looks.
 
+### ▶ [Live demo](https://ai-shopping-ui-five.vercel.app)
+
+Try *"Compare os 3 notebooks mais bem avaliados"* or *"Tênis masculino até R$ 600"*. It runs on a free API key with a small daily quota, so on a busy day it may ask you to come back tomorrow (that message is part of the design, see [Reliability](#reliability-on-a-free-tier)).
+
 ```
 "Compare os 3 notebooks mais bem avaliados"
    → searchProducts({ category: "laptops", sortBy: "rating", limit: 3 })   → product cards
