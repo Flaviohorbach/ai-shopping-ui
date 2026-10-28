@@ -41,6 +41,9 @@ export async function POST(request: Request) {
       const message = error instanceof Error ? error.message : String(error);
       if (/per day|quota/i.test(message)) return "A demonstração atingiu o limite gratuito de hoje. Volte amanhã!";
       if (/high demand|overloaded|503/i.test(message)) return "O modelo está sobrecarregado agora. Tente de novo em alguns segundos.";
+      // Configuration problems: the visitor cannot fix them, but the owner needs to know which one it is.
+      if (/api key is missing|GEMINI_API_KEY/i.test(message)) return "A demonstração está sem a chave da IA configurada no servidor.";
+      if (/API_KEY_INVALID|API key not valid/i.test(message)) return "A chave da IA configurada no servidor é inválida.";
       console.error("chat error:", message);
       return "Algo deu errado do nosso lado. Tente de novo.";
     },
